@@ -1,7 +1,5 @@
-var body = document.querySelector("#body")
 var home = document.querySelector("#home")
-var msgid = document.querySelector("#msgid")
-
+var divMsg = document.querySelector("#divMsg")
 //aqui começa o codigo dos botoes que mudam a cor
 var textBtn0 = document.createTextNode("Azul")
 var textBtn1 = document.createTextNode("Laranja")
@@ -27,13 +25,29 @@ button_orange.onclick = function() {
 button_purple.onclick = function() {
     body.style.background = "purple"
 }
-//tentativa de fazer ele imprimir a mensagem na tela.
+//imprimir e excluir a mensagem na tela.
 function concretMsg(){
+    var div = document.createElement("div")
     var nome = document.getElementById("nomeid").value
     var msg = document.getElementById("msgid").value
+    var text_p = document.createElement("p")
+    text_p.innerText = nome + ": " + msg
 
-     alert(nome + msg)
-     //Incompleto, coloquei o alert só para ver se ele estava resgatando do html.
+    var textBtn = document.createTextNode("Excluir")
+    var button = document.createElement("button")
+    button.appendChild(textBtn)
+
+    if(nome != "" && msg != ""){
+        div.appendChild(text_p)
+        div.appendChild(button)
+        divMsg.appendChild(div)
+    } else {
+        alert("Não se pode cadastrar uma mensagem com campos vazios")
+    }
+
+    button.onclick = function remove(){
+        divMsg.removeChild(div)
+    }
 }
 //adição dos elementos na div home
 home.appendChild(button_blue)
