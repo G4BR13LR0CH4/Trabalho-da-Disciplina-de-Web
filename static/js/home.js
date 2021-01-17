@@ -1,6 +1,6 @@
 var home = document.querySelector("#home")
 var divMsg = document.querySelector("#divMsg")
-//aqui começa o codigo dos botoes que mudam a cor
+//botoes que mudam a cor
 var textBtn0 = document.createTextNode("Azul")
 var textBtn1 = document.createTextNode("Laranja")
 var textBtn2 = document.createTextNode("Roxo")
@@ -26,7 +26,7 @@ button_purple.onclick = function() {
     body.style.background = "purple"
 }
 //imprimir e excluir a mensagem na tela.
-function concretMsg(){
+function adcMsg(){
     var div = document.createElement("div")
     var nome = document.getElementById("nomeid").value
     var msg = document.getElementById("msgid").value
@@ -48,6 +48,12 @@ function concretMsg(){
     button.onclick = function remove(){
         divMsg.removeChild(div)
     }
+}
+//creditos
+function creditos(){
+    alert("Disciplina: Desenvolvimento de Software para web\n" +
+    "Alunos: Caio Graco e Gabriel Rocha" 
+    )
 }
 //adição dos elementos na div home
 home.appendChild(button_blue)
